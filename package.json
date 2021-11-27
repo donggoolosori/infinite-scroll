@@ -7,8 +7,12 @@
     "start": "nodemon --exec ts-node index.ts"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
