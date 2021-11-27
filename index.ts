@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import express from 'express';
 import morgan from 'morgan';
 import { createConnection } from 'typeorm';
@@ -20,7 +21,7 @@ createConnection({
   password: process.env.PASS_WORD,
   database: process.env.DATABASE,
   entities: [User],
-  synchronize: true,
+  synchronize: false,
   logging: false,
 })
   .then(() => {
@@ -28,6 +29,9 @@ createConnection({
   })
   .catch((error) => console.log(error));
 
+app.get('/', (req: express.Request, res: express.Response) => {
+  res.sendFile(__dirname + '/client/index.html');
+});
 app.use('/api/user', userRouter);
 
 app.listen(3000, () => console.log('Server starts on 3000'));
