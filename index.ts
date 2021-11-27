@@ -12,6 +12,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.static(`${__dirname}/client`));
 
 createConnection({
   type: 'mysql',
@@ -29,9 +30,13 @@ createConnection({
   })
   .catch((error) => console.log(error));
 
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.sendFile(__dirname + '/client/index.html');
-});
+app.get(
+  '/',
+  (req: express.Request, res: express.Response) => {
+    res.sendFile(`${__dirname}/client/index.html`);
+  },
+  (err) => console.log(err)
+);
 app.use('/api/user', userRouter);
 
 app.listen(3000, () => console.log('Server starts on 3000'));
