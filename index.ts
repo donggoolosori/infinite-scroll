@@ -1,6 +1,6 @@
-const express = require('express');
-const morgan = require('morgan');
-const userRouter = require('./router/userRouter');
+import express from 'express';
+import morgan from 'morgan';
+import userRouter from './api';
 
 const app = express();
 
