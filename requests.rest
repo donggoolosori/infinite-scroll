@@ -1,1 +1,2 @@
-GET http://localhost:3000/api/user
+### 0~20까지의 user 정보 가져오기
+GET http://localhost:3000/api/user/0
